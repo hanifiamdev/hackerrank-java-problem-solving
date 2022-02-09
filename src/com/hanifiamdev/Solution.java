@@ -39,6 +39,25 @@ class Result {
 
     }
 
+    // Solusi lain
+    public static int birthdayV2(List<Integer> s, int d, int m) {
+        // Write your code here
+        int count = 0;
+        int sum = 0;
+        for (int i = 0; i < s.size(); i++) {
+            if (i < m - 1) {
+                sum += s.get(i);
+            } else {
+                sum -= i - m < 0 ? 0 : s.get(i - m);
+                sum += s.get(i);
+                if (sum == d)
+                    count++;
+            }
+        }
+        return count;
+
+    }
+
 
 }
 
